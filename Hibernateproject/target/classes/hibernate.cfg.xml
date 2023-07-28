@@ -1,0 +1,41 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		
+		<!--the path of database drivers-->
+		<property name = "hibernate.connection.driver_class">
+			com.mysql.cj.jdbc.Driver
+		</property>
+
+		<!-- Assume test is the database name -->
+		<property name = "hibernate.connection.url">
+			jdbc:mysql://localhost:3306/classicmodels
+		</property>
+		
+		<!-- Your database username-->
+		<property name = "hibernate.connection.username">
+			root
+		</property>
+
+		<property name = "hibernate.connection.password">
+			password
+		</property>
+
+		<!-- We use dialect to provide information about which
+			database we are using, we are using mysql -->
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+		<!-- This property enables us to update the
+			table everytime the program runs-->
+		<property name="hbm2ddl.auto">update</property>
+
+		<!-- List of XML mapping files -->
+		<!-- path of a mapping file, for us its our
+			STudent class which is a POJO -->
+		<mapping class="com.student.Student"/>
+
+	</session-factory>
+
+</hibernate-configuration>
